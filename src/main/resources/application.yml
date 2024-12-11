@@ -1,0 +1,35 @@
+# Database Configuration
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/javapro_task8
+    username: postgres
+    password: rootroot
+  jpa:
+    sql:
+      init:
+        mode: always
+    show-sql: true
+    properties:
+      hibernate:
+        format-sql: true
+        highlight_sql: true
+        use_sql_comments: true
+        hbm2ddl: validate
+  flyway:
+    enable: true
+    validate-on-migrate: false
+    locations: db/migration
+
+# Server Configuration
+server:
+  port: 8080
+
+# Logging Configuration
+logging:
+  level:
+    org:
+      hibernate:
+        orm:
+          jdbc:
+            bind: trace
